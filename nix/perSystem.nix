@@ -1,11 +1,11 @@
-{ lib, config, pkgs, mentci-el-src, ... }:
+{ lib, config, pkgs, mentci-rs-src, ... }:
 let
   inherit (pkgs) stdenv;
 
-  mentci-el = stdenv.mkDerivation {
-    name = "mentci-el";
+  mentci-rs = stdenv.mkDerivation {
+    name = "mentci-rs";
     version = "unversionned";
-    src = mentci-el-src;
+    src = mentci-rs-src;
   };
 
 in
@@ -14,8 +14,8 @@ in
 
   config = {
     packages = {
-      inherit mentci-el;
-      default = mentci-el;
+      inherit mentci-rs;
+      default = mentci-rs;
     };
   };
 }
